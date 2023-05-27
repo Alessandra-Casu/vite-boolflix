@@ -5,6 +5,45 @@ export default {
   props: {
     listTitle: String,
     arrCards: Array,
+    cardType: String,
+  },
+  methods: {
+    formatObj(originalObj) {
+      switch (this.cardType) {
+        case "movie":
+          return this.formatObjMovies(originalObj);
+          break;
+        case "serie":
+          return this.formatObjSeries(originalObj);
+          break;
+      }
+    },
+
+    formatToObjMovies(originalObj) {
+      return {
+        title: originalObj.title,
+        originalTitle: originalObj.original_title,
+        language: originalObj.original_language,
+        rating: this.convertRating(originalObj.voto_average, 10, 5),
+        image: this.makeUrl(originalObj.poster_path),
+      };
+    },
+    formatToObjSeries(originalObj) {
+      return {
+        title: originalObj.name,
+        originalTitle: originalObj.original_name,
+        language: originalObj.original_language,
+        rating: this.convertRating(originalObj.voto_average, 10, 5),
+        image: this.makeUrl(originalObj.poster_path),
+      };
+    },
+    convertRating(originalRating, originalMax, newMax) {
+      //originalRating : 10 = newRating : 5
+      return Math.round((originalRating * newMax) / originalMax);
+    },
+    makeUrl(partialPath) {
+      return "https://image.tmdb.org/t/pw342" + partialPath;
+    },
   },
 };
 </script>
@@ -14,7 +53,7 @@ export default {
   <CardComponent
     v-for="card in arrCards"
     :key="card.id"
-    :cardData="card"
+    :cardData="formatObj(card)"
   ></CardComponent>
 </template>
 

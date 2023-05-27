@@ -16,25 +16,42 @@ export default {
     AppMain,
   },
   methods: {
-    requestToApi(searchStr) {
+    requestToApi(url, objParams, varResult) {
       axios
-        .get("https://api.themoviedb.org/3/search/movie", {
-          params: {
-            api_key: "91c0f3fc838603e06ffe5972c76dbab9",
-            query: searchStr,
-          },
+        .get(url, {
+          params: objParams,
         })
         .then((response) => {
           console.log(response.data.results);
-          this.store.arrMovies = response.data.results;
+          if (response.request.responseURL.includes("/search/movie")) {
+            this.store.arrMovies = response.data.results;
+          } else {
+            this.store.arrSeries = response.data.results;
+          } // TO DO scrivere il valore di varResult
         });
+    },
+    searchToApi(searchStr) {
+      const objParams = {
+        api_key: "91c0f3fc838603e06ffe5972c76dbab9",
+        query: searchStr,
+      };
+      this.requestToApi(
+        "https://api.themoviedb.org/3/search/movie",
+        objParams,
+        this.store.arrMovies
+      ); //per i film
+      this.requestToApi(
+        "https://api.themoviedb.org/3/search/tv",
+        objParams,
+        this.store.arrSeries
+      ); //per le serie
     },
   },
 };
 </script>
 
 <template>
-  <AppHeader @searchRequest="requestToApi"></AppHeader>
+  <AppHeader @searchRequest="searchToApi"></AppHeader>
   <AppMain></AppMain>
 </template>
 
