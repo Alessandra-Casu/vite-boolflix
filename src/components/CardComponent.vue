@@ -13,8 +13,9 @@ export default {
 <template>
   <ul>
     <li><img :src="cardData.image" :alt="cardData.title" /></li>
+
     <li>{{ cardData.title }}</li>
-    <li>{{ cardData.original_title }}</li>
+    <li>{{ cardData.originalTitle }}</li>
     <li>
       <LangFlag :iso="cardData.language" :squared="false"></LangFlag>
       <span class="lang-text">{{ cardData.language }}</span>

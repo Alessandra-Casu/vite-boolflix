@@ -19,7 +19,7 @@ export default {
       }
     },
 
-    formatToObjMovies(originalObj) {
+    formatTObjMovies(originalObj) {
       return {
         title: originalObj.title,
         originalTitle: originalObj.original_title,
@@ -28,7 +28,7 @@ export default {
         image: this.makeUrl(originalObj.poster_path),
       };
     },
-    formatToObjSeries(originalObj) {
+    formatTObjSeries(originalObj) {
       return {
         title: originalObj.name,
         originalTitle: originalObj.original_name,
@@ -42,7 +42,7 @@ export default {
       return Math.round((originalRating * newMax) / originalMax);
     },
     makeUrl(partialPath) {
-      return "https://image.tmdb.org/t/pw342" + partialPath;
+      return "https://image.tmdb.org/t/p/w342" + partialPath;
     },
   },
 };
