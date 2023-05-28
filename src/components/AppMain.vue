@@ -13,18 +13,11 @@ export default {
   },
 };
 </script>
-
 <template>
   <ResultsList
     listTitle="Risultati dei film"
     :arrCards="store.arrMovies"
-    :cardType="movie"
   ></ResultsList>
-  <ResultsList
-    listTitle="Risultati delle serie"
-    :arrCards="store.arrSeries"
-    :cardType="serie"
-  ></ResultsList>
+  <!-- <ResultsList listTitle="Risultati dei film" :arrCards="store.Movies"></ResultsList> -->
 </template>
-
 <style></style>
