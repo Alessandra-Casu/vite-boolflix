@@ -43,7 +43,9 @@ export default {
       return Math.round((originalRating * newMax) / originalMax);
     },
     makeURL(partialPath) {
-      return "https://image.tmdb.org/t/p/w342" + partialPath;
+      return partialPath
+        ? "https://image.tmdb.org/t/p/w342" + partialPath
+        : "/img/Not.png";
     },
   },
 };
