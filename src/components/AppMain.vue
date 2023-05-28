@@ -17,6 +17,7 @@ export default {
   <ResultsList
     listTitle="Risultati dei film"
     :arrCards="store.arrMovies"
+    cardType="movie"
   ></ResultsList>
   <ResultsList
     listTitle="Risultati delle serie"

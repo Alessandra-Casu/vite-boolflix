@@ -7,7 +7,6 @@ export default {
   },
   methods: {
     onSubmit() {
-      console.log(this.searchStr);
       this.$emit("searchRequest", this.searchStr);
     },
   },
