@@ -10,7 +10,7 @@ export default {
 };
 </script>
 <template>
-  <div>
+  <div class="cardMovieSerie">
     <ul>
       <img :src="cardData.image" :alt="cardData.title" />
       <li>{{ cardData.title }}</li>
@@ -20,10 +20,11 @@ export default {
         <span class="lang-text">{{ cardData.language }}</span>
       </li>
       <li>{{ cardData.rating }}</li>
+      <li>{{ cardData.overview }}</li>
     </ul>
   </div>
 </template>
-<style scoped>
+<style lang="scss" scoped>
 .lang-text {
   display: none;
 }

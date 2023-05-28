@@ -28,6 +28,7 @@ export default {
         language: originalObj.original_language,
         rating: this.convertRating(originalObj.vote_average, 10, 5),
         image: this.makeURL(originalObj.poster_path),
+        overview: originalObj.overview,
       };
     },
     formatObjSeries(originalObj) {
@@ -37,6 +38,7 @@ export default {
         language: originalObj.original_language,
         rating: this.convertRating(originalObj.vote_average, 10, 5),
         image: this.makeURL(originalObj.poster_path),
+        overview: originalObj.overview,
       };
     },
     convertRating(originalRating, originalMax, newMax) {
