@@ -1,18 +1,36 @@
 <script>
+import LangFlag from "vue-lang-code-flags/LangFlag.vue";
 export default {
   props: {
     cardData: Object,
+  },
+  components: {
+    LangFlag,
   },
 };
 </script>
 <template>
   <div>
     <ul>
+      <img :src="cardData.image" :alt="cardData.title" />
       <li>{{ cardData.title }}</li>
-      <li>{{ cardData.original_title }}</li>
-      <li>{{ cardData.original_language }}</li>
-      <li>{{ cardData.vote_average }}</li>
+      <li>{{ cardData.originalTitle }}</li>
+      <li>
+        <LangFlag :iso="cardData.language" :squared="false" />
+        <span class="lang-text">{{ cardData.language }}</span>
+      </li>
+      <li>{{ cardData.rating }}</li>
     </ul>
   </div>
 </template>
-<style></style>
+<style scoped>
+.lang-text {
+  display: none;
+}
+.flag-icon-undefined {
+  display: none;
+}
+.flag-icon-undefined + .lang-text {
+  display: inline;
+}
+</style>

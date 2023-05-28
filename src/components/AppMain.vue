@@ -18,6 +18,10 @@ export default {
     listTitle="Risultati dei film"
     :arrCards="store.arrMovies"
   ></ResultsList>
-  <!-- <ResultsList listTitle="Risultati dei film" :arrCards="store.Movies"></ResultsList> -->
+  <ResultsList
+    listTitle="Risultati delle serie"
+    :arrCards="store.arrSeries"
+    cardType="serie"
+  ></ResultsList>
 </template>
 <style></style>
