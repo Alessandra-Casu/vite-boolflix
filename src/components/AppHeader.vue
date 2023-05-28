@@ -5,17 +5,11 @@ export default {
       searchStr: "",
     };
   },
-  methods: {
-    onSubmit() {
-      console.log(this.searchStr);
-      this.$emit("searchRequest", this.searchStr);
-    },
-  },
 };
 </script>
 
 <template>
-  <form @submit.prevent="onSubmit">
+  <form @submit.prevent="this.$emit('searchRequest', searchStr)">
     <span>BoolFlix</span>
     <input type="text" v-model="searchStr" />
     <button>CERCA</button>
