@@ -19,7 +19,20 @@ export default {
         <LangFlag :iso="cardData.language" :squared="false" />
         <span class="lang-text">{{ cardData.language }}</span>
       </li>
-      <li>{{ cardData.rating }}</li>
+      <li>
+        <font-awesome-icon
+          icon="fa-solid fa-star"
+          v-for="i in cardData.rating"
+          :key="i"
+          class="star"
+        ></font-awesome-icon>
+        <font-awesome-icon
+          icon="fa-regular fa-star "
+          v-for="i in 5 - cardData.rating"
+          :key="i"
+          class="star"
+        ></font-awesome-icon>
+      </li>
       <li>{{ cardData.overview }}</li>
     </ul>
   </div>

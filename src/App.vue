@@ -52,6 +52,7 @@ export default {
 
 <template>
   <AppHeader @searchRequest="searchApi" />
+
   <AppMain></AppMain>
 </template>
 
@@ -60,5 +61,8 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  background-color: rgb(53, 52, 52);
 }
 </style>

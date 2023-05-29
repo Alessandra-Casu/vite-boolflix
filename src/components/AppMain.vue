@@ -14,15 +14,24 @@ export default {
 };
 </script>
 <template>
-  <ResultsList
-    listTitle="Risultati dei film"
-    :arrCards="store.arrMovies"
-    cardType="movie"
-  ></ResultsList>
-  <ResultsList
-    listTitle="Risultati delle serie"
-    :arrCards="store.arrSeries"
-    cardType="serie"
-  ></ResultsList>
+  <div class="container">
+    <ResultsList
+      listTitle="Risultati dei film"
+      :arrCards="store.arrMovies"
+      cardType="movie"
+    ></ResultsList>
+
+    <ResultsList
+      listTitle="Risultati delle serie"
+      :arrCards="store.arrSeries"
+      cardType="serie"
+    ></ResultsList>
+  </div>
 </template>
-<style></style>
+<style lang="scss" scoped>
+.container {
+  width: 80%;
+  margin: auto;
+  padding: 2rem;
+}
+</style>
