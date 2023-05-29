@@ -55,10 +55,18 @@ export default {
 
 <template>
   <h2>{{ listTitle }}</h2>
-  <CardComponent
-    v-for="card in arrCards"
-    :key="card.id"
-    :cardData="formatObj(card)"
-  ></CardComponent>
+  <div class="cardList">
+    <CardComponent
+      v-for="card in arrCards"
+      :key="card.id"
+      :cardData="formatObj(card)"
+    ></CardComponent>
+  </div>
 </template>
-<style></style>
+<style lang="scss">
+.cardList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>
